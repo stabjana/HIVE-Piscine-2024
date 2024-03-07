@@ -1,37 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjana <sjana@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 09:00:54 by sjana             #+#    #+#             */
-/*   Updated: 2024/02/28 15:05:51 by sjana            ###   ########.fr       */
+/*   Created: 2024/02/29 17:11:20 by sjana             #+#    #+#             */
+/*   Updated: 2024/02/29 17:34:40 by sjana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+int	ft_putchar(char c)
 {
-	int	i;
+	write(1, &c, 1);
+	return (0);
+}
 
-	i = 0;
-	while (str[i] != '\0')
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		i++;
+		ft_putchar('-');
+		ft_putchar('2');
+		ft_putnbr(147483648);
 	}
+	else if (nb < 0)
 	{
-		write(1, str, i);
+		ft_putchar('-');
+		ft_putnbr(-nb);
+	}
+	else if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else if (nb <= 9)
+	{
+		ft_putchar(nb + 48);
 	}
 }
 /*
-#include <stdio.h>
 int	main(void)
 {
-	char	*str;
-	str = "hello";
-
-	ft_putstr(str);
+	ft_putnbr(-2147483648);
 	return (0);
 }*/

@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjana <sjana@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 09:00:54 by sjana             #+#    #+#             */
-/*   Updated: 2024/02/28 15:05:51 by sjana            ###   ########.fr       */
+/*   Created: 2024/02/23 08:30:54 by sjana             #+#    #+#             */
+/*   Updated: 2024/02/28 14:24:49 by sjana            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
@@ -21,17 +19,16 @@ void	ft_putstr(char *str)
 	{
 		i++;
 	}
-	{
-		write(1, str, i);
-	}
+	return (i);
 }
 /*
+#include <string.h>
 #include <stdio.h>
 int	main(void)
 {
-	char	*str;
-	str = "hello";
-
-	ft_putstr(str);
+	char	str[] = "hello";
+	
+	ft_strlen(str);
+	printf("%i", ft_strlen(str));
 	return (0);
 }*/
